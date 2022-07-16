@@ -57,3 +57,15 @@ https://docs.streamlit.io/library/api-reference/layout
 ## 状态展示
 https://docs.streamlit.io/library/api-reference/status/st.warning
 
+## 构建
+docker build -t lemonhall/streamlit:v1 .
+
+## push的小技巧
+
+首先需要在自己的空间下build
+docker build -t lemonhall/apns:v1 .
+docker login
+docker push lemonhall/apns:v1
+
+这样就能成功的push了
+
