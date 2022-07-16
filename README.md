@@ -1,3 +1,7 @@
+## 项目截图
+
+![This is an image](/screenshot.png)
+
 ## 启一个新环境
 conda create --name streamit python=3.8 --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 
