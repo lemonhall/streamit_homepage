@@ -63,9 +63,19 @@ docker build -t lemonhall/streamlit:v1 .
 ## push的小技巧
 
 首先需要在自己的空间下build
-docker build -t lemonhall/apns:v1 .
+docker build -t lemonhall/streamlit:v1 .
 docker login
-docker push lemonhall/apns:v1
+docker push lemonhall/streamlit:v1
 
 这样就能成功的push了
 
+## 跑起来
+* ssh到群晖里面去，然后sudo docker pull lemonhall/streamlit:v1，把镜像拉下来
+* 新建一个容器，需要配置三点，1、Entry Point需要覆盖images的配置。2、共享目录要配好，把项目文件映射到root目录下面去。3、记得start.sh里面写cd
+* 然后启动这个容器，配置好端口映射，此时外网还访问不了你。
+* 最后是到控制面板，登陆选项，高级，反向代理里面去
+
+![This is an image](/r_proxy_setting.jpeg)
+
+* 按照上面的配置反向代理，否则ws跑不起来
+* [[SOLVED] Websocket setup on Synology](https://vaultwarden.discourse.group/t/solved-websocket-setup-on-synology/116/8)
